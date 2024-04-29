@@ -7,7 +7,7 @@ public class Utils {
 
     private static String getRub(double cost){
         int costInt = (int) cost;
-        if(costInt>10 & costInt<20){
+        if (costInt>10 & costInt<20) {
             return "рублей";
         }
         return switch (costInt%10) {
@@ -18,14 +18,14 @@ public class Utils {
     }
 
     public static void printList(ArrayList<Product> productsList) {
-        for(Product product: productsList){
+        for (Product product: productsList) {
             System.out.println(product.getFormatString()+" "+getRub(product.cost));
         }
     }
 
     public static double findSum(ArrayList<Product> productsList){
         double sum = 0.0;
-        for(Product product: productsList){
+        for (Product product: productsList) {
             sum+=product.cost;
         }
         return sum;
