@@ -5,21 +5,21 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int amountOfGuests = -1;
+        int numberOfGuests = -1;
         ArrayList<Product> productsList = new ArrayList<>();
 
-        while (amountOfGuests <= 1) {
+        while (numberOfGuests <= 1) {
             System.out.println("Введите число гостей:");
             if (scanner.hasNextInt()) {
-                amountOfGuests = scanner.nextInt();
+                numberOfGuests = scanner.nextInt();
             } else {
                 System.out.println("Необходимо ввести целое число. Повторите попытку.");
                 scanner.next();
                 continue;
             }
-            if (amountOfGuests == 1) {
+            if (numberOfGuests == 1) {
                 System.out.println("Нет смысла сичтать, если Вы один. Повторите попытку.");
-            } else if (amountOfGuests < 1) {
+            } else if (numberOfGuests < 1) {
                 System.out.println("Некорректное число. Повторите попытку.");
             }
         }
@@ -48,8 +48,9 @@ public class Main {
         Utils.printList(productsList);
 
         double sum = Utils.findSum(productsList);
+        double sumPerPerson = sum / numberOfGuests;
 
-        System.out.printf((Utils.formatSum) + "%n", sum);
-        System.out.printf((Utils.formatEveryPay) + "%n", sum/amountOfGuests);
+        System.out.printf((Utils.getFormatSum(sum)) + "%n", sum);
+        System.out.printf((Utils.getFormatEveryPay(sumPerPerson)) + "%n", sumPerPerson);
     }
 }
